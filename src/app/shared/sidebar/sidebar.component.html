@@ -18,15 +18,15 @@
             </span></a
           >
           <ul aria-expanded="false" class="collapse">
-            <li><a routerLink="/" routerLinkActive="active">My Profile </a></li>
-            <li><a routerLink="/" routerLinkActive="active">My Balance</a></li>
-            <li><a routerLink="/" routerLinkActive="active">Inbox</a></li>
+            <li><a href="javascript:void()">My Profile </a></li>
+            <li><a href="javascript:void()">My Balance</a></li>
+            <li><a href="javascript:void()">Inbox</a></li>
             <li>
               <a routerLink="/account-settings" routerLinkActive="active"
                 >Account Setting</a
               >
             </li>
-            <li><a routerLink="/login">Logout</a></li>
+            <li><a (click)="usuarioService.logout()" class="pointer">Logout</a></li>
           </ul>
         </li>
         <li class="nav-devider"></li>

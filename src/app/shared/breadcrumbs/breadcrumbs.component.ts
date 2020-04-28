@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivationEnd } from '@angular/router';
 import { filter, map } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { Title, Meta, MetaDefinition } from '@angular/platform-browser';
 
 @Component({
@@ -9,14 +9,16 @@ import { Title, Meta, MetaDefinition } from '@angular/platform-browser';
   templateUrl: './breadcrumbs.component.html',
   styles: [],
 })
-export class BreadcrumbsComponent implements OnInit {
+export class BreadcrumbsComponent implements OnInit, OnDestroy {
   titulo: string;
+  routerSubscription: Subscription;
+
   constructor(
     private router: Router,
     private title: Title,
     private meta: Meta
   ) {
-    this.getDataRoute().subscribe((data) => {
+    this.routerSubscription = this.getDataRoute().subscribe((data) => {
       console.log(data);
       this.titulo = data.titulo;
       this.title.setTitle(this.titulo);
@@ -36,5 +38,9 @@ export class BreadcrumbsComponent implements OnInit {
       filter((evento: ActivationEnd) => evento.snapshot.firstChild === null),
       map((evento: ActivationEnd) => evento.snapshot.data as { titulo: string })
     );
+  }
+
+  ngOnDestroy(): void {
+    this.routerSubscription.unsubscribe();
   }
 }
