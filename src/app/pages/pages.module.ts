@@ -8,6 +8,7 @@ import { PagesComponent } from './pages.component';
 import { SharedModule } from '../shared/shared.module';
 import { PagesRoutingModule } from './pages-routing.module';
 import { CommonModule } from '@angular/common';
+import { ModalUploadComponent } from '../components/modal-upload/modal-upload.component';
 
 // temporal
 import { IncrementadorComponent } from '../components/incrementador/incrementador.component';
@@ -19,6 +20,7 @@ import { RxjsComponent } from './rxjs/rxjs.component';
 // Pipe Module
 import { PipesModule } from '../pipes/pipes/pipes.module';
 import { ProfileComponent } from './profile/profile.component';
+import { UsuariosComponent } from './usuarios/usuarios.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { ProfileComponent } from './profile/profile.component';
     AccountSettingsComponent,
     PromesasComponent,
     RxjsComponent,
-    ProfileComponent
+    ProfileComponent,
+    UsuariosComponent,
+    ModalUploadComponent,
   ],
   exports: [
     PagesComponent,

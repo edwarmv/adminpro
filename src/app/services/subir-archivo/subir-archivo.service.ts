@@ -9,7 +9,11 @@ export class SubirArchivoService {
 
   constructor() { }
 
-  subirArchivo(archivo: File, tipo: string, id: string) {
+  subirArchivo(archivo: File, tipo: string, id: string): Promise<{
+    mensaje: string,
+    ok: boolean,
+    usuario: Usuario,
+  }> {
     return new Promise<{
       mensaje: string,
       ok: boolean,

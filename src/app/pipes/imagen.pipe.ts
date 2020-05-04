@@ -7,12 +7,12 @@ import { environment } from 'src/environments/environment';
 export class ImagenPipe implements PipeTransform {
 
   transform(img: string, tipo: string = 'usuario'): string {
-    if (img.indexOf('googleusercontent') >= 0) {
-      return img;
-    }
     let url = environment.apiUrl + '/img';
     if (!img) {
       return url + '/usuarios/abc';
+    }
+    if (img.indexOf('googleusercontent') >= 0) {
+      return img;
     }
     switch (tipo) {
       case 'usuario':
