@@ -6,7 +6,10 @@ import { environment } from 'src/environments/environment';
 })
 export class ImagenPipe implements PipeTransform {
 
-  transform(img: string, tipo: string = 'usuario'): string {
+  transform(
+    img: string,
+    tipo: 'usuario' | 'hospital' | 'medico' = 'usuario'
+  ): string {
     let url = environment.apiUrl + '/img';
     if (!img) {
       return url + '/usuarios/abc';
@@ -22,7 +25,7 @@ export class ImagenPipe implements PipeTransform {
         url += '/medicos/' + img;
         break;
       case 'hospital':
-        url += '/hospital/' + img;
+        url += '/hospitales/' + img;
         break;
       default:
         console.log('Tipo de imagen no existe');

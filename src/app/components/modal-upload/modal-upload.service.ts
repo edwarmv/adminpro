@@ -18,7 +18,7 @@ export class ModalUploadService {
     this.id = null;
   }
 
-  mostrarModal(tipo: string, id: string) {
+  mostrarModal(tipo: 'usuarios' | 'hospitales' | 'medicos', id: string) {
     this.oculto = '';
     this.id = id;
     this.tipo = tipo;
