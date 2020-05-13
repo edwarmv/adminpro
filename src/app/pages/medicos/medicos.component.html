@@ -49,7 +49,7 @@
                 {{ medico.nombre }}
               </td>
               <td>
-                {{ medico.hospital.nombre }}
+                {{ $any(medico.hospital).nombre }}
               </td>
               <td>
                 <button

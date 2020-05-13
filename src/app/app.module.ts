@@ -6,10 +6,11 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { NopagefoundComponent } from './pages/nopagefound/nopagefound.component';
 import { RegisterComponent } from './login/register.component';
-import { PagesModule } from './pages/pages.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { PagesComponent } from './pages/pages.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -17,14 +18,15 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     RegisterComponent,
     NopagefoundComponent,
-  ],
+    PagesComponent,
+  ] ,
   imports: [
     BrowserModule,
     HttpClientModule,
-    PagesModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
+    SharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
